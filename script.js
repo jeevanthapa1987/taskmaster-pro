@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 var tasks = {};
 var createTask = function(taskText, taskDate, taskList) {
   // create elements that make up a task item
@@ -79,7 +70,9 @@ $(".list-group").on("click", "p", function() {
     .text()
     .trim();
   // replace p element with a new textarea
-  var textInput = $("<textarea>").addClass("form-control").val(text);
+  var textInput = $("<textarea>")
+    .addClass("form-control")
+    .val(text);
   $(this).replaceWith(textInput);
   // auto focus new element
   textInput.trigger("focus");
@@ -139,7 +132,7 @@ $(".list-group").on("blur", "input[type='text']", function() {
   var taskSpan = $("<span>")
     .addClass("badge badge-primary badge-pill")
     .text(date);
-    $(this).replaceWith(taskSpan);
+  $(this).replaceWith(taskSpan);
 });
 // remove all tasks
 $("#remove-tasks").on("click", function() {
